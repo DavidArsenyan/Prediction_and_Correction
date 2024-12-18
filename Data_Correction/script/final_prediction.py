@@ -25,6 +25,11 @@ print(invalid_rows)
 corrected_tavg = pattern(db, pred)
 db['tavg'] = corrected_tavg
 
+# === Corrected tavg and invalid rows
+for i in range(len(invalid_rows["tavg"])):
+    index  = invalid_rows["tavg"].index.tolist()[i]
+    print(corrected_tavg[index], invalid_rows["tavg"][i:i+1].values)
+
 # Ensure tavg is numeric (convert non-numeric to NaN)
 db['tavg'] = pd.to_numeric(db['tavg'], errors='coerce')  # Convert errors to NaN
 db['tavg'].fillna(db['tavg'].mean(), inplace=True)  # Fill NaN with the mean temperature

@@ -25,7 +25,6 @@ tf.random.set_seed(seed_value)
 # Replace with your actual file paths
 df_2019_2023 = pd.read_csv('../files/summer_weather_erevan.csv')  # Data for 2019-2023
 df_2024 = pd.read_csv('../files/db_2024.csv') # Real data for 2024
-
 # Transform date to day of the year
 df_2019_2023['date'] = pd.to_datetime(df_2019_2023['date'])
 df_2019_2023['year'] = df_2019_2023['date'].dt.year
